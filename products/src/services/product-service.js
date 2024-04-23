@@ -17,17 +17,17 @@ class ProductService {
             throw new APIError('Data Not found')
         }
     }
-
+    
     async GetProducts(){
         try{
             const products = await this.repository.Products();
-
+    
             let categories = {};
-
+    
             products.map(({ type }) => {
                 categories[type] = type;
             });
-
+            
             return FormateData({
                 products,
                 categories:  Object.keys(categories) ,
@@ -76,7 +76,7 @@ class ProductService {
     }
 
     async GetProductPayload(userId, { productId, qty}, event) {
-
+        
         const product = await this.repository.FindById(productId);
 
         if(product){
@@ -91,7 +91,7 @@ class ProductService {
 
 
     }
-
+     
 }
 
 module.exports = ProductService;

@@ -1,3 +1,3 @@
-module.exports ={
+module.exports = {
     ProductModel: require('./Product'),
 }
